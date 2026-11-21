@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Color Changer</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            transition: background-color 0.5s;
+        }
+
+        h1 {
+            margin-top: 200px;
+            font-size: 40px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #colorCode {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🌈 Color Magic</h1>
+
+    <h2 id="colorCode">Click to Start!</h2>
+
+    <button onclick="startColor()">Start</button>
+
+    <script>
+        function changeColor() {
+            let randomColor = "#" +
+                Math.floor(Math.random() * 16777215)
+                .toString(16).padStart(6, "0");
+
+            document.body.style.backgroundColor = randomColor;
+
+            document.getElementById("colorCode").innerText =
+                randomColor.toUpperCase();
+        }
+
+        function startColor() {
+            setInterval(changeColor, 1000);
+        }
+    </script>
+
+</body>
+</html>

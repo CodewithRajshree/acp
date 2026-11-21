@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Number Generator</title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+        }
+
+        #dice {
+            font-size: 100px;
+            margin: 30px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Random Number Generator</h1>
+
+    <div id="dice">1</div>
+
+    <button onclick="stopStart()">Start / Stop</button>
+
+    <script>
+        var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        var stopped = true;
+
+        function change() {
+            var random = Math.floor(Math.random() * 10);
+
+            dice.innerHTML = numbers[random];
+        }
+
+        function stopStart() {
+            if (stopped) {
+                stopped = false;
+                t = setInterval(change, 100);
+            } else {
+                clearInterval(t);
+                stopped = true;
+            }
+        }
+
+        window.onload = function() {
+            dice = document.getElementById("dice");
+            stopStart();
+        }
+    </script>
+
+</body>
+</html>

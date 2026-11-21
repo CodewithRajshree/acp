@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Today's Date</title>
+</head>
+
+<body>
+
+    <h2>Today's Calendar</h2>
+
+    <h3 id="date"></h3>
+
+    <script>
+        let today = new Date();
+
+        let date = today.getDate();
+        let month = today.toLocaleString("en-IN", {
+            month: "long"
+        });
+        let year = today.getFullYear();
+
+        document.getElementById("date").innerText =
+            date + " / " + month + " / " + year;
+    </script>
+
+</body>
+</html>
